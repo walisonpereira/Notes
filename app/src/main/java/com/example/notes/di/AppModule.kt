@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.example.notes.data.data_source.NoteDatabase
 import com.example.notes.data.repository.NoteRepositoryImpl
 import com.example.notes.domain.repository.NoteRepository
-import com.example.notes.domain.use_case.AddNote
-import com.example.notes.domain.use_case.DeleteNote
-import com.example.notes.domain.use_case.GetNotes
-import com.example.notes.domain.use_case.NoteUseCases
+import com.example.notes.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +38,8 @@ object AppModule {
         return NoteUseCases(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
-            addNote = AddNote(repository)
+            addNote = AddNote(repository),
+            getNote = GetNote(repository)
         )
     }
 
